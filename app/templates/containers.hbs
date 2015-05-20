@@ -1,0 +1,49 @@
+{{outlet}}
+
+<div class='panel panel-default'>
+  <div class='panel-heading'>Containers</div>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Command</th>
+        <th>Status</th>
+        <th>Names</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each container in containers}}
+      <tr>
+        <td>{{container.Id}}</td>
+        <td>{{container.Image}}</td>
+        <td>{{container.Command}}</td>
+        <td>{{container.Status}}</td>
+        <td>
+          {{#each name in container.Names}}
+            {{name}};
+          {{/each}}
+        </td>
+        <td>
+          <div class='btn-group-xs' role='group' aria-label='...'>
+            <button type='button' class='btn btn-success'>Start</button>
+            <button type='button' class='btn btn-primary'>Restart</button>
+            <button type='button' class='btn btn-danger'>Remove</button>
+          </div>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<center>
+  {{pagination-pager current=page count=pagesCount hide=true}}
+</center>
+
+{{#if all}}
+  {{#link-to 'containers' (query-params all=false page=1)}}Hide Inactives{{/link-to}}
+{{else}}
+  {{#link-to 'containers' (query-params all=true page=1)}}Show Inactives{{/link-to}}
+{{/if}}
