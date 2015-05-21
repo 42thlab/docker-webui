@@ -15,7 +15,7 @@ COPY package.json $APP/
 COPY bower.json $APP/
 
 # Change app's files owner.
-RUN chown -R dev:dev $APP
+RUN chown -R dev:dev $APP /home/dev
 
 USER dev
 
