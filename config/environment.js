@@ -1,4 +1,5 @@
 /* jshint node: true */
+var apiURL = process.env.API_URL;
 
 module.exports = function(environment) {
   var ENV = {
@@ -17,11 +18,11 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    apiURL: process.env.API_URL,
     contentSecurityPolicy: {
-      'connect-src': '*',
-      'script-src': '*'
+      'connect-src': "'self' "+apiURL,
+      'script-src': "'self' "+apiURL
     },
+    apiURL: apiURL,
   };
 
   if (environment === 'development') {
