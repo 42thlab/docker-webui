@@ -1,0 +1,13 @@
+<div class='jumbotron'>
+  <div class='row'>
+    <div class='col-md-2'>{{model.name}}</div>
+
+    <div class='col-md-2'>{{model.deployedAt}}</div>
+
+    {{#each container in model.containers}}
+    {{#link-to 'container' container}}
+    <div class='col-md-2'>{{container.image}}</div>
+    {{/link-to}}
+    {{/each}}
+  </div>
+</div>
