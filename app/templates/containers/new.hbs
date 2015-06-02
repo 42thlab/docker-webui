@@ -1,0 +1,12 @@
+<div class='jumbotron'>
+  {{#em-form model=controller submit_button=false}}
+    {{em-input property="command" label="Command"}}
+    {{em-input property="image" label="Image"}}
+    {{em-select property="nodeId" label="Node" prompt="-select-" contentBinding="nodes" optionValuePath="content.id" optionLabelPath="content.name"}}
+  {{/em-form}}
+
+  {{#link-to 'containers'}}
+  <button class="btn btn-danger">Cancel</button>
+  {{/link-to}}
+  <button {{action 'submit'}} {{bind-attr disabled=canNotSubmit}} class='btn btn-success'>Add</button>
+</div>

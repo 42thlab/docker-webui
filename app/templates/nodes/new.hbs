@@ -1,0 +1,13 @@
+<div class='jumbotron'>
+  {{#em-form model=controller submit_button=false}}
+    {{em-input property="name" label="Name"}}
+    {{em-input property="region" label="Region"}}
+    {{em-input property="size" label="Size"}}
+    {{em-select property="clusterId" label="Cluster" prompt="-select-" contentBinding="clusters" optionValuePath="content.id" optionLabelPath="content.name"}}
+  {{/em-form}}
+
+  {{#link-to 'nodes'}}
+  <button class="btn btn-danger">Cancel</button>
+  {{/link-to}}
+  <button {{action 'submit'}} {{bind-attr disabled=canNotSubmit}} class='btn btn-success'>Add</button>
+</div>

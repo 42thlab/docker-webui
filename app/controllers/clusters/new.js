@@ -8,22 +8,28 @@ export default Ember.ObjectController.extend(
   name: '',
   strategy: '',
 
-  showErrors: false,
+  strategyOptions: [
+   { name: 'spread' },
+   { name: 'binpack' },
+   { name: 'random' }
+  ],
+
+  canNotSubmit: function() {
+    return !this.get('isValid');
+  }.property('isValid'),
 
   validations: {
     name: {
       presence: true,
       length: { minimum: 5 }
+    },
+    strategy: {
+      presence: true
     }
   },
 
   actions: {
-    createCluster: function() {
-      if (!this.get('isValid')) {
-        this.set('showErrors', true);
-        return false;
-      }
-
+    submit: function() {
       let cluster = this.store.createRecord('cluster', {
         name: this.get('name'),
         strategy: this.get('strategy')

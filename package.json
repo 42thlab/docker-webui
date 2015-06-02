@@ -34,7 +34,13 @@
     "ember-data": "1.0.0-beta.17",
     "ember-disable-proxy-controllers": "0.7.x",
     "ember-export-application-global": "1.0.x",
+<<<<<<< HEAD
     "pagination-pager": "1.2.x",
     "ember-validations": "2.0.0-alpha.3"
+=======
+    "ember-idx-forms": "^0.6.0",
+    "ember-validations": "2.0.0-alpha.3",
+    "pagination-pager": "1.2.x"
+>>>>>>> add basic add/delete navigation
   }
 }

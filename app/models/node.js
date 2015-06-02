@@ -43,8 +43,7 @@ Node.reopenClass({
       updatedAt: new Date("2014-02-07T16:44:57"),
       containersCount: 2,
       containers: [1, 2]
-    },
-    {
+    }, {
       id: 2,
       cluster: 1,
       name: 'Slave Tintin',

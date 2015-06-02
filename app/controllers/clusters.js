@@ -6,9 +6,9 @@ export default Ember.Controller.extend({
   }.property('model.length'),
 
   actions: {
-    deleteCluster: function(c) {
-      this.store.find('cluster', c.get('id')).then(function (cluster) {
-        cluster.destroyRecord();
+    delete: function(cluster) {
+      this.store.find('cluster', cluster.get('id')).then(function (record) {
+        record.destroyRecord();
       });
     }
   }

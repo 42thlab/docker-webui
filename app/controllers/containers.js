@@ -3,7 +3,15 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   containersCount: function() {
     return this.get('model.length');
-  }.property('model.length')
+  }.property('model.length'),
+
+  actions: {
+    delete: function(container) {
+      this.store.find('container', container.get('id')).then(function (record) {
+        record.destroyRecord();
+      });
+    }
+  }
   // queryParams: ['all', 'page', 'perPage'],
   // all: false,
   // perPage: 10,
