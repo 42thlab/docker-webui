@@ -1,19 +1,31 @@
 <div>
-  Clusters count: {{clustersCount}}
+  <div class='row'>
+    Clusters count: {{clustersCount}}
+  </div>
 
-  {{#each cluster in model}}
-  <div class='jumbotron'>
-    <div class='row'>
-      {{#link-to 'cluster' cluster}}
-      <div class='col-md-2'>{{cluster.name}}</div>
-      {{/link-to}}
+  <div class='row'>
+    <div class='col-md-8'>
+      {{#each cluster in model}}
+        <div class='jumbotron'>
+          {{#link-to 'cluster' cluster}}
+          <div class='col-md-2'>{{cluster.name}}</div>
+          {{/link-to}}
 
-      {{#each node in cluster.nodes}}
-      {{#link-to 'node' node}}
-      <div class='col-md-2'>{{node.name}}</div>
-      {{/link-to}}
+          {{#each node in cluster.nodes}}
+          {{#link-to 'node' node}}
+          <div class='col-md-2'>{{node.name}}</div>
+          {{/link-to}}
+          {{/each}}
+
+          <button {{action 'deleteCluster' cluster}} class='btn btn-danger'>Delete</button>
+        </div>
       {{/each}}
     </div>
+
+    <div class='col-md-3 col-md-offset-1 well'>
+      {{#link-to 'clusters/new'}}
+      <button class="btn btn-success">Add cluster</button>
+      {{/link-to}}
+    </div>
   </div>
-  {{/each}}
 </div>

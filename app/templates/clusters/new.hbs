@@ -1,0 +1,16 @@
+<div class='jumbotron'>
+  <div class='form-group'>
+    <label for='inputName'>Name</label>
+    {{input valueBinding='name' class='form-control' id="inputName"}}
+    {{#if showErrors}}<span>{{errors.name}}</span>{{/if}}
+  </div>
+  <div class='form-group'>
+    <label for='inputStrategy' class='control-label'>Strategy</label>
+    {{input valueBinding='strategy' class='form-control' id="inputStrategy"}}
+  </div>
+
+  {{#link-to 'clusters'}}
+  <button class="btn btn-danger">Cancel</button>
+  {{/link-to}}
+  <button {{action 'createCluster'}} class="btn btn-success">Add</button>
+</div>

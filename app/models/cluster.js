@@ -8,8 +8,8 @@ let Cluster = DS.Model.extend({
   nodesCount: DS.attr(),
   nodes: DS.hasMany('node' , {async: true}),
   containersCount: DS.attr(),
-  created_at: DS.attr(),
-  updated_at: DS.attr()
+  createdAt: DS.attr(),
+  updatedAt: DS.attr()
 });
 
 Cluster.reopenClass({
