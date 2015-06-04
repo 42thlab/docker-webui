@@ -12,10 +12,13 @@ web:
     - API_URL
 
 api:
-  image: foliea/docker-proxy:experimental
+  image: containerhq/arkis-api:1.0.0.alpha
   command: node index.js
+  user: root
   ports:
     - '4000:4000'
+  links:
+    - 'db'
   volumes:
     - '$DOCKER_CERT_PATH:/home/.docker'
     - '/var/run/docker.sock:/var/run/docker.sock'
@@ -23,3 +26,10 @@ api:
     - DOCKER_CERT_PATH=/home/.docker
     - DOCKER_HOST
     - DOCKER_TLS_VERIFY
+
+db:
+  image: postgres:9.4.2
+  expose:
+    - '5432'
+  volumes:
+    - '/arkis-db:/var/lib/postgresql/data'
