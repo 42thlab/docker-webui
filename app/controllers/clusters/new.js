@@ -37,7 +37,7 @@ export default Ember.ObjectController.extend(
 
       let controller = this;
 
-      cluster.save().then(cluster => {
+      cluster.save().then(() => {
         controller.set('name', '');
         controller.set('strategy', '');
         controller.transitionTo('clusters');

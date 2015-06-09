@@ -1,0 +1,21 @@
+<div class='row'>
+  <div class='jumbotron col-md-8'>
+    <div>Arkis is the easiest way to use Docker in Production:</div>
+    <div>-BDD backup</div>
+    <div>-awesome metrics</div>
+  </div>
+  {{#if session.isAuthenticated}}
+    <div class='jumbotron col-md-3 col-md-offset-1'>
+      <span>You are connected</span>
+    </div>
+  {{else}}
+    <div class='jumbotron col-md-3 col-md-offset-1'>
+      {{#em-form model=model submit_button=false}}
+        {{em-input property="email" label="Email" placeholder="Enter a valid email..."}}
+        {{em-input property="password" label="Password" type="password" placeholder="Enter a password"}}
+      {{/em-form}}
+
+      <button {{action 'login'}} class='btn btn-success'>Login</button>
+    </div>
+  {{/if}}
+</div>

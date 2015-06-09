@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('login');
+  this.resource('profile');
   this.resource('clusters');
   this.resource('cluster', { path: '/cluster/:cluster_id' });
   this.resource('clusters/new');

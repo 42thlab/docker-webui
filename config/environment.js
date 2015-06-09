@@ -23,6 +23,20 @@ module.exports = function(environment) {
       'script-src': "'self' "+apiURL
     },
     apiURL: apiURL,
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:token',
+      authenticationRoute: 'index',
+      // session: 'session:withCurrentUser'
+    },
+    'simple-auth-token': {
+      serverTokenEndpoint: 'http://127.0.0.1:4000/api/v1/login',
+      identificationField: 'email',
+      passwordField: 'password',
+      tokenPropertyName: 'token',
+      authorizationPrefix: 'Bearer ',
+      authorizationHeaderName: 'Authorization',
+      headers: {},
+    }
   };
 
   if (environment === 'development') {
