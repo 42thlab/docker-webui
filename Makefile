@@ -6,7 +6,7 @@ all: detach
 
 re: clean build migrations all
 
-fclean: build
+fclean:
 	$(compose) run api sequelize db:migrate:undo:all
 
 clean:
@@ -16,13 +16,13 @@ clean:
 build:
 	$(compose) build
 
-migrations: build
+migrations:
 	$(compose) run api sequelize db:migrate
 
-update: build
+update:
 	$(compose) pull
 
-shell: migrations
+shell: migrations build
 	$(compose) run --service-ports web /bin/bash
 
 up: migrations

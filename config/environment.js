@@ -19,7 +19,7 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-      'connect-src': "'self' "+apiURL,
+      'connect-src': "'self' "+apiURL+" http://127.0.0.1:4000",
       'script-src': "'self' "+apiURL
     },
     apiURL: apiURL,
@@ -29,7 +29,7 @@ module.exports = function(environment) {
       // session: 'session:withCurrentUser'
     },
     'simple-auth-token': {
-      serverTokenEndpoint: 'http://127.0.0.1:4000/api/v1/login',
+      serverTokenEndpoint: 'http://127.0.0.1:4000/api/v1/auth/login',
       identificationField: 'email',
       passwordField: 'password',
       tokenPropertyName: 'token',
