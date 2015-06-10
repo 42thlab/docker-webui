@@ -7,8 +7,7 @@ inflector.irregular('profile', 'profile');
 
 let Profile = DS.Model.extend(EmberValidations.Mixin,
 {
-  fullname: DS.attr(),
-  created_at: DS.attr()
+  fullname: DS.attr()
 });
 
 export default Profile;

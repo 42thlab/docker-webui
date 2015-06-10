@@ -1,0 +1,8 @@
+<div class='jumbotron'>
+  {{#em-form model=controller submit_button=false}}
+    {{em-input property="newEmail" label="New email" placeholder="Enter the new email for the account"}}
+    {{em-input property="currentPassword" label="Current password" type="password" placeholder="Enter your current password"}}
+  {{/em-form}}
+
+  <button {{action 'submit'}} class='btn btn-success'>Submit</button>
+</div>

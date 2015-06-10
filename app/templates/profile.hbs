@@ -1,7 +1,7 @@
-<div>Id: {{model.id}}</div>
-<div>Full name: {{model.fullname}}</div>
-<div>Created at: {{model.created_at}}</div>
+<div class='jumbotron'>
+  {{#em-form model=model submit_button=false}}
+    {{em-input property="fullname" label="Fullname" placeholder="Enter a full name"}}
+  {{/em-form}}
 
-{{#each profile in model.profiles}}
-<div>toto</div>
-{{/each}}
+  <button {{action 'submit'}} class='btn btn-success'>Submit</button>
+</div>

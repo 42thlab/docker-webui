@@ -17,6 +17,7 @@ export default Ember.Route.extend({
       let authenticator = 'simple-auth-authenticator:token';
 
       this.get('session').authenticate(authenticator, credentials);
+      localStorage.setItem("userEmail", user.get('email'));
     },
   }
 });
