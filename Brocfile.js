@@ -13,6 +13,16 @@ app.import({
   ]
 });
 
+var bootstrapPath = 'bootstrap-sass-official/assets/javascripts';
+
+app.import({
+  development: 'bower_components/'+bootstrapPath+'/bootstrap.js',
+  production:  'bower_components/'+bootstrapPath+'/bootstrap.min.js'
+}, {
+  'bootstrap': [
+    'default'
+  ]
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.

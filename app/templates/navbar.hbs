@@ -8,8 +8,14 @@
           <li>{{#link-to 'clusters'}}Clusters{{/link-to}}</li>
           <li>{{#link-to 'nodes'}}Nodes{{/link-to}}</li>
           <li>{{#link-to 'containers'}}Containers{{/link-to}}</li>
-          <li>{{#link-to 'account.profile'}}My account {{userEmail}}{{/link-to}}</li>
-            <li><button {{action 'logout'}} class='btn btn-danger'>Logout</button></li>
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{userEmail}} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>{{#link-to 'account.profile'}}Account settings{{/link-to}}</li>
+              <li class='divider'></li>
+              <li><a {{action 'logout'}}>Logout</a></li>
+            </ul>
+          </li>
           {{/if}}
         </ul>
       </div>
