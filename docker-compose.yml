@@ -7,7 +7,7 @@ web:
     - '4200:4200'
     - '35729:35729'
   volumes:
-    - '.:/home/dev/docker-webui'
+    - '.:/arkis-webui'
   environment:
     - API_URL
 
@@ -26,6 +26,7 @@ api:
     - DOCKER_CERT_PATH=/home/.docker
     - DOCKER_HOST
     - DOCKER_TLS_VERIFY
+    - NODE_ENV=production
 
 db:
   image: postgres:9.4.2

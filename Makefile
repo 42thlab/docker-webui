@@ -22,10 +22,10 @@ migrations:
 update:
 	$(compose) pull
 
-shell: migrations build
+shell: build migrations
 	$(compose) run --service-ports web /bin/bash
 
-up: migrations
+up: build migrations
 	$(compose) up
 
 detach:

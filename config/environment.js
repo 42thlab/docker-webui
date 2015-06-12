@@ -1,6 +1,8 @@
 /* jshint node: true */
 var apiURL = process.env.API_URL;
 
+var API_NAMESPACE = '/api/v1';
+
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'daas-webui',
@@ -19,21 +21,22 @@ module.exports = function(environment) {
       // when it is created
     },
     contentSecurityPolicy: {
-      'connect-src': "'self' "+apiURL+" http://127.0.0.1:4000",
-      'script-src': "'self' "+apiURL
+      'connect-src': '*',
+      'script-src': '*'
     },
     apiURL: apiURL,
+    apiNamespace: API_NAMESPACE,
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:token',
       authenticationRoute: 'index',
       // session: 'session:withCurrentUser'
     },
     'simple-auth-token': {
-      serverTokenEndpoint: 'http://127.0.0.1:4000/api/v1/auth/login',
+      serverTokenEndpoint: apiURL+API_NAMESPACE+'/auth/login',
       identificationField: 'email',
       passwordField: 'password',
       tokenPropertyName: 'token',
-      authorizationPrefix: 'Bearer ',
+      authorizationPrefix: 'JWT ',
       authorizationHeaderName: 'Authorization',
       headers: {},
     }
@@ -60,7 +63,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.contentSecurityPolicy =  {
+      'connect-src': "'self' "+apiURL,
+      'script-src': "'self' "+apiURL
+    };
   }
 
   return ENV;

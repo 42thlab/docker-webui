@@ -1,32 +1,30 @@
 FROM node:0.12.2
 
-ENV APP /home/dev/docker-webui
+ENV APP=/arkis-webui VENDOR=/vendor
 
-# Add user exec.
-RUN useradd dev
+# Add user dev.
+RUN useradd dev && mkdir /home/dev && chown -R dev:dev /home/dev
 
 # Install ember and bower.
-RUN npm install -g ember-cli bower
+RUN npm install -g \
+    ember-cli \
+    bower
 
-# Copy package.json into the image.
-COPY package.json $APP/
+# Copy package.json  and bower.json into the image.
+COPY *.json $VENDOR/
 
-# Copy package.json into the image.
-COPY bower.json $APP/
-
-# Change app's files owner.
-RUN chown -R dev:dev $APP /home/dev
+RUN chown -R dev:dev $VENDOR
 
 USER dev
 
 # npm install inside app's location.
-RUN cd $APP && npm install
+RUN cd $VENDOR && npm install
 
 # Everything up to here was cached. This includes
 # the npm install, unless package.json changed.
 
 # bower install inside app's location.
-RUN cd $APP && bower install
+RUN cd $VENDOR && bower install
 
 # Everything up to here was cached. This includes
 # the bower install, unless bower.json changed.

@@ -1,9 +1,10 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import ENV from '../../config/environment';
 
 export default DS.RESTAdapter.extend({
-  host: 'http://127.0.0.1:4000',
-  namespace: 'api/v1',
+  host: ENV.apiURL,
+  namespace: ENV.apiNamespace,
 
   headers: function() {
     let session = localStorage.getItem('ember_simple_auth:session');
