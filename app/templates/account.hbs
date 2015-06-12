@@ -1,8 +1,10 @@
 <div class='jumbotron col-md-3'>
   <ul class="nav nav-pills nav-stacked">
-    {{#link-to 'profile' tagName='li'}}<a {{bind-attr href='view.href'}}>Profile</a>{{/link-to}}
-    {{#link-to 'account.change-email' tagName='li'}}<a {{bind-attr href='view.href'}}>Change email</a>{{/link-to}}
-    {{#link-to 'account.change-password' tagName='li'}}<a {{bind-attr href='view.href'}}>Change password</a>{{/link-to}}
+    {{#link-to 'account.profile' tagName='li'}}<a {{bind-attr href='view.href'}}>Profile</a>{{/link-to}}
+    {{#link-to 'account.email' tagName='li'}}<a {{bind-attr href='view.href'}}>Change email</a>{{/link-to}}
+    {{#link-to 'account.password' tagName='li'}}<a {{bind-attr href='view.href'}}>Change password</a>{{/link-to}}
+    {{#link-to 'account.token' tagName='li'}}<a {{bind-attr href='view.href'}}>Json Web Token</a>{{/link-to}}
+    {{#link-to 'account.cancel' tagName='li'}}<a {{bind-attr href='view.href'}}>Cancel account</a>{{/link-to}}
   </ul>
 </div>
 

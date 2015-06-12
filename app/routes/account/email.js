@@ -3,12 +3,13 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
-    return this.store.find('profile', '');
+    return this.store.createRecord('account/email');
   },
 
   actions: {
     submit: function(){
       this.get('currentModel').save();
+      //add new email in session
     },
   }
 });

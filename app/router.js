@@ -7,9 +7,11 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('account', function() {
-    this.resource('profile');
-    this.route('change-email');
-    this.route('change-password');
+    this.route('profile');
+    this.route('email');
+    this.route('password');
+    this.route('token');
+    this.route('cancel');
   });
   // this.resource('profile');
   this.resource('clusters');
