@@ -328,11 +328,73 @@ test("can lookup templates via Ember.TEMPLATES", function() {
   ok(template, 'template should resolve');
 });
 
+test('it provides eachForType which invokes the callback for each item found', function() {
+
+  function orange() { }
+  define('appkit/fruits/orange', [], function() {
+    return { default: orange };
+  });
+
+  function apple() { }
+  define('appkit/fruits/apple', [], function() {
+    return {default: apple };
+  });
+
+  function other() {}
+  define('appkit/stuffs/other', [], function() {
+    return { default: other };
+  });
+
+  var items = resolver.knownForType('fruit');
+
+  deepEqual(items, {
+    'fruit:orange': true,
+    'fruit:apple': true
+  });
+});
+
+test('eachForType can find both pod and non-pod factories', function() {
+  function orange() { }
+  define('appkit/fruits/orange', [], function() {
+    return { default: orange };
+  });
+
+  function lemon() { }
+  define('appkit/lemon/fruit', [], function() {
+    return { default: lemon };
+  });
+
+  var items = resolver.knownForType('fruit');
+
+  deepEqual(items, {
+    'fruit:orange': true,
+    'fruit:lemon': true
+  });
+});
+
+test('if shouldWrapInClassFactory returns true a wrapped object is returned', function() {
+  resolver.shouldWrapInClassFactory = function(defaultExport, parsedName) {
+    equal(defaultExport, 'foo');
+    equal(parsedName.fullName, 'string:foo');
+
+    return true;
+  };
+
+  define('appkit/strings/foo', [], function() {
+    return { default: 'foo' };
+  });
+
+  var value = resolver.resolve('string:foo');
+
+  equal(value.create(), 'foo');
+});
+
 module("Logging", {
   setup: function() {
     originalLog = Ember.Logger.info;
     logCalls = [];
     Ember.Logger.info = function(arg) { logCalls.push(arg); };
+    setupResolver();
   },
 
   teardown: function() {
@@ -365,6 +427,7 @@ test("doesn't log lookups if disabled", function() {
 });
 
 module("custom prefixes by type", {
+  setup: setupResolver,
   teardown: resetRegistry
 });
 

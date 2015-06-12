@@ -1,15 +1,27 @@
 <div>
-  Containers count: {{containersCount}}
+  <div class='row'>
+    Containers count: {{containersCount}}
+  </div>
 
-  {{#each container in model}}
-  <div class='jumbotron'>
-    <div class='row'>
-      {{#link-to 'container' container}}
-      <div class='col-md-2'>{{container.image}}</div>
+  <div class='row'>
+    <div class='col-md-8'>
+      {{#each container in model}}
+        <div class='jumbotron'>
+          {{#link-to 'container' container}}
+          <div class='col-md-2'>{{container.image}}</div>
+          {{/link-to}}
+
+          <button {{action 'delete' container}} class='btn btn-danger'>Delete</button>
+        </div>
+      {{/each}}
+    </div>
+
+    <div class='col-md-3 col-md-offset-1 well'>
+      {{#link-to 'containers/new'}}
+      <button class="btn btn-success">Add Container</button>
       {{/link-to}}
     </div>
   </div>
-  {{/each}}
 </div>
 
 <!-- <center>
