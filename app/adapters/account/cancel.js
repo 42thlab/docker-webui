@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import ENV from '../config/environment';
+import ENV from '../../config/environment';
 
 export default DS.RESTAdapter.extend({
   host: ENV.apiURL,
@@ -21,13 +21,5 @@ export default DS.RESTAdapter.extend({
     serializer.serializeIntoHash(json, type, record);
     var id = record.get('id');
     return this.ajax(this.buildURL(type.typeKey, ''), "DELETE", { data: json });
-  },
-
-  updateRecord: function(store, type, record) {
-    var json = {};
-    var serializer = store.serializerFor(type.typeKey);
-    serializer.serializeIntoHash(json, type, record);
-    var id = record.get('id');
-    return this.ajax(this.buildURL(type.typeKey, ''), "PATCH", { data: json });
   },
 });

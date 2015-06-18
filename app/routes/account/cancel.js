@@ -9,8 +9,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
     submit: function(){
       this.get('currentModel').save();
-      // this.get('session').invalidate();
-      // this.transitionTo('index');
+      this.get('session').invalidate();
+      this.transitionTo('index');
     },
   }
 });

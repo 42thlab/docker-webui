@@ -1,7 +1,6 @@
 /* jshint node: true */
 var apiURL = process.env.API_URL;
-
-var API_NAMESPACE = '/api/v1';
+var API_NAMESPACE = 'api/v1';
 
 module.exports = function(environment) {
   var ENV = {
@@ -32,7 +31,7 @@ module.exports = function(environment) {
       // session: 'session:withCurrentUser'
     },
     'simple-auth-token': {
-      serverTokenEndpoint: apiURL+API_NAMESPACE+'/auth/login',
+      serverTokenEndpoint: apiURL+'/'+API_NAMESPACE+'/auth/login',
       identificationField: 'email',
       passwordField: 'password',
       tokenPropertyName: 'token',
@@ -60,6 +59,8 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    // ENV['simple-auth'].store = 'simple-auth-session-store:ephemeral';
   }
 
   if (environment === 'production') {

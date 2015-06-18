@@ -13,7 +13,6 @@ Router.map(function() {
     this.route('token');
     this.route('cancel');
   });
-  // this.resource('profile');
   this.resource('clusters');
   this.resource('cluster', { path: '/cluster/:cluster_id' });
   this.resource('clusters/new');
