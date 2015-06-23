@@ -3,5 +3,5 @@
     {{em-input property="fullname" label="Fullname" placeholder="Enter a full name"}}
   {{/em-form}}
 
-  <button {{action 'submit'}} class='btn btn-success'>Submit</button>
+  {{em-button on-click='submit' default='Save' class='btn btn-success' executing='Saving' resolved='Saved' rejected="Failed"}}
 </div>

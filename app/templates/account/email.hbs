@@ -4,5 +4,5 @@
     {{em-input property="password" label="Current password" type="password" placeholder="Enter your current password"}}
   {{/em-form}}
 
-  <button {{action 'submit'}} class='btn btn-success'>Submit</button>
+  {{em-button on-click='submit' default='Save' class='btn btn-success' executing='Saving' resolved='Saved' rejected="Failed"}}
 </div>

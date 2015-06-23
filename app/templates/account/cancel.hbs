@@ -3,5 +3,5 @@
     {{em-input property="password" label="Password" type="password" placeholder="Enter your current password"}}
   {{/em-form}}
 
-  <button {{action 'submit'}} class='btn btn-danger'>Cancel account</button>
+  {{em-button on-click='submit' default='Cancel' class='btn btn-danger' executing='Canceling' resolved='Canceled' rejected="Failed"}}
 </div>

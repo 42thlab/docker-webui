@@ -1,4 +1,4 @@
 <div class='jumbotron'>
   {{model}}
-  <button {{action 'submit'}} class='btn btn-success'>Regenerate</button>
+  {{em-button on-click='submit' default='Regenerate' class='btn btn-success' executing='Regenerating' rejected="Failed"}}
 </div>
