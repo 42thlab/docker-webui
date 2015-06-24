@@ -1,8 +1,15 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import EmberValidations from 'ember-validations';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(EmberValidations.Mixin,AuthenticatedRouteMixin, {
   model: function() {
     return this.store.createRecord('account/email');
+  },
+
+  actions: {
+    toto: function() {
+      this.set('canShowErrors', true);
+    }
   }
 });

@@ -20,7 +20,7 @@ Email.reopen({
     password: {
       presence: true
     }
-  }
+  },
 });
 
 export default Email;
