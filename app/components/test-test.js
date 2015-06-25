@@ -2,18 +2,27 @@ import Ember from 'ember';
 import FormGroupComponent from 'ember-idx-forms/form';
 
 export default FormGroupComponent.extend({
+  label: 'Save',
+
   submit: function(e) {
-    console.log("tata");
-    var promise;
     var self = this;
 
     if (e) {
       e.preventDefault();
     }
 
+    var defer = Ember.RSVP.defer();
+
+    defer.promise.then(function(){
+      self.set('label', 'Save');
+    }).catch(function(){
+      self.set('label', 'Save');
+    });
+
     return this.get('model').validate()
       .then(function() {
-        return self.get('targetObject').send(self.get('action'));
+        self.set('label', 'Saving');
+        return self.get('targetObject').send(self.get('action'), defer);
       })
       .catch(function() {
         self.showErrors(self);
@@ -30,5 +39,5 @@ export default FormGroupComponent.extend({
         self.showErrors(validation);
       }
     });
-  }
+  },
 });

@@ -1,14 +1,14 @@
 <div class='jumbotron'>
-  {{#test-test model=model}}
+  {{#test-test model=model default='Save' executing='Saving' resolved='Saved' rejected="Failed"}}
     {{em-input property="newEmail" label="New email" placeholder="Enter the new email for the account"}}
     {{em-input property="password" label="Current password" type="password" placeholder="Enter your current password"}}
 
-    <div class="ember-view form-group">
+    <!-- <div class="ember-view form-group">
       <button class="btn btn-default">Submit</button>
     </div>
 
-    <!-- <div class="ember-view form-group"> -->
-      {{em-button on-click='submit' default='Save' class='btn btn-success' executing='Saving' resolved='Saved' rejected="Failed"}}
-    <!-- </div> -->
+    {{em-button on-click='submit' default='Save' class='btn btn-success' executing='Saving' resolved='Saved' rejected="Failed"}} -->
+
+
   {{/test-test}}
 </div>
