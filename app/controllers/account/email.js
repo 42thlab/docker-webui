@@ -1,10 +1,7 @@
 import Ember from 'ember';
 import errorHandler from '../../utils/errorHandler';
-import EmberValidations from 'ember-validations';
 
-var _asyncSubmitDeffer = Ember.RSVP.defer();
-
-export default Ember.Controller.extend(EmberValidations.Mixin,{
+export default Ember.Controller.extend({
   actions: {
     submit: function(defer) {
       let self = this;

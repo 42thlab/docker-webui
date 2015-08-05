@@ -1,4 +1,5 @@
 <div class='jumbotron'>
-  {{model}}
-  {{em-button on-click='submit' default='Regenerate' class='btn btn-success' executing='Regenerating' rejected="Failed"}}
+  {{#basic-form model=model validationNeeded=false labelSave='Regenerate' labelSaving='Regenerating' labelSaved='Regenerated'}}
+    {{model}}
+  {{/basic-form}}
 </div>

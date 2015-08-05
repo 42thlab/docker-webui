@@ -3,16 +3,17 @@ import errorHandler from '../../utils/errorHandler';
 
 export default Ember.Controller.extend({
   actions: {
-    submit: function(setPromise) {
+    submit: function(defer) {
       let self = this;
 
-      return setPromise(
-        this.get('model').save()
-        .catch(error => {
-          errorHandler(self);
-          return rej();
-        })
-      );
+      this.get('model').save()
+      .then(() => {
+        defer.resolve();
+      })
+      .catch(error => {
+        errorHandler(self);
+        defer.reject();
+      });
     }
   }
 });

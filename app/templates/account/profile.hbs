@@ -1,7 +1,5 @@
 <div class='jumbotron'>
-  {{#em-form model=model submit_button=false}}
+  {{#basic-form model=model}}
     {{em-input property="fullname" label="Fullname" placeholder="Enter a full name"}}
-  {{/em-form}}
-
-  {{em-button on-click='submit' default='Save' class='btn btn-success' executing='Saving' resolved='Saved' rejected="Failed"}}
+  {{/basic-form}}
 </div>

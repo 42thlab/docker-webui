@@ -1,0 +1,12 @@
+{{yield}}
+<button {{bind-attr class="isSaving:disabled :btn :btn-success"}}>
+  {{#if isSaving}}
+    {{labelSaving}}
+    <i class="fa fa-spinner fa-spin"></i>
+  {{else if isSaved}}
+    {{labelSaved}}
+    <i class="fa fa-check"></i>
+  {{else}}
+    {{labelSave}}
+  {{/if}}
+</button>
