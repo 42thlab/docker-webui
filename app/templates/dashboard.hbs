@@ -1,0 +1,11 @@
+<div class='jumbotron col-md-3'>
+  <ul class="nav nav-pills nav-stacked">
+    {{#link-to 'dashboard.clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>Clusters</a>{{/link-to}}
+    {{#link-to 'dashboard.nodes' tagName='li'}}<a {{bind-attr href='view.href'}}>Nodes</a>{{/link-to}}
+    {{#link-to 'dashboard.containers' tagName='li'}}<a {{bind-attr href='view.href'}}>Containers</a>{{/link-to}}
+  </ul>
+</div>
+
+<div class='col-md-9'>
+  {{outlet}}
+</div>

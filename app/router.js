@@ -13,6 +13,14 @@ Router.map(function() {
     this.route('token');
     this.route('cancel');
   });
+  this.route('dashboard', function() {
+    this.route('clusters');
+    this.route('clusters/new');
+    this.route('nodes');
+    this.route('nodes/new');
+    this.route('containers');
+    this.route('containers/new');
+  });
   this.resource('clusters');
   this.resource('cluster', { path: '/cluster/:cluster_id' });
   this.resource('clusters/new');
