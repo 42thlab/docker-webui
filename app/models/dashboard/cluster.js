@@ -5,7 +5,18 @@ import Ember from "ember";
 let Cluster = DS.Model.extend(EmberValidations.Mixin,
 {
   name: DS.attr(),
-  strategy: ['toto', 'tata'],
+  strategy: DS.attr(),
+});
+
+Cluster.reopen({
+  validations: {
+    name: {
+      presence: true
+    },
+    strategy: {
+      presence: true
+    }
+  }
 });
 
 export default Cluster;

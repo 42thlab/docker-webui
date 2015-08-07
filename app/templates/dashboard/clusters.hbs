@@ -2,4 +2,8 @@
   {{#link-to 'dashboard.clusters/new' tagName='li'}}<a {{bind-attr href='view.href'}}>New</a>{{/link-to}}
 </ul>
 
-{{outlet}}
+{{#each cluster in model}}
+  <div class='jumbotron'>
+    {{cluster.name}} - {{cluster.strategy}}
+  </div>
+{{/each}}
