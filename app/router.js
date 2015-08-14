@@ -15,6 +15,7 @@ Router.map(function() {
   });
   this.route('dashboard', function() {
     this.route('clusters');
+    this.route('cluster', { path: '/cluster/:cluster_id' });
     this.route('clusters/new');
     this.route('nodes');
     this.route('nodes/new');

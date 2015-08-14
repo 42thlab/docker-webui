@@ -1,0 +1,14 @@
+<div class='jumbotron'>
+  <div>id: {{model.id}}</div>
+  <div>name: {{model.name}}</div>
+  <div>strategy: {{model.strategy}}</div>
+  <div>state_message: {{model.state_message}}</div>
+  <div>token: {{model.token}}</div>
+  <div>created_at: {{model.created_at}}</div>
+  <div>updated_at: {{model.updated_at}}</div>
+  <div>nodes_count: {{model.nodes_count}}</div>
+  <div>containers_count: {{model.containers_count}}</div>
+  <div>last_ping: {{model.last_ping}}</div>
+  <div>state: {{model.state}}</div>
+  <button {{action 'delete' model}} class='btn btn-danger'>Delete</button>
+</div>
