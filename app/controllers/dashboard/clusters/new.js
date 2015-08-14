@@ -20,6 +20,10 @@ export default Ember.Controller.extend({
         errorHandler(self);
         defer.reject();
       });
+    },
+
+    delete: function() {
+      alert("toto");
     }
   }
 });

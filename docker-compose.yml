@@ -12,7 +12,7 @@ web:
     - API_URL
 
 api:
-  image: containerhq/arkis-api:1.0.0.alpha
+  image: containerhq/arkis-api:latest
   command: node index.js
   user: root
   ports:
