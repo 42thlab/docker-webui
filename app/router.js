@@ -23,12 +23,6 @@ Router.map(function() {
     this.route('containers');
     this.route('containers/new');
   });
-  this.resource('nodes');
-  this.resource('node', { path: '/node/:node_id' });
-  this.resource('nodes/new');
-  this.resource('containers');
-  this.resource('container', { path: '/container/:container_id' });
-  this.resource('containers/new');
 });
 
 export default Router;
