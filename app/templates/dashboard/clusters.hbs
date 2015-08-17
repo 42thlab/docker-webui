@@ -17,6 +17,7 @@
       <div>state: {{cluster.state}}</div>
     </div>
     {{/link-to}}
+    {{#link-to 'dashboard.cluster/edit' cluster}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
     <button {{action 'delete' cluster}} class='btn btn-danger'>Delete</button>
   </div>
 {{/each}}

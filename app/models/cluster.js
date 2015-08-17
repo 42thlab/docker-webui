@@ -20,9 +20,6 @@ Cluster.reopen({
   validations: {
     name: {
       presence: true
-    },
-    strategy: {
-      presence: true
     }
   }
 });

@@ -14,4 +14,12 @@ export default DS.RESTAdapter.extend({
       'Authorization': `JWT ${json.secure.token}`
     };
   }.property().volatile(),
+
+  updateRecord: function(store, type, record) {
+    var json = {};
+    var serializer = store.serializerFor(type.typeKey);
+    serializer.serializeIntoHash(json, type, record);
+    var id = record.get('id');
+    return this.ajax(this.buildURL(type.typeKey, id), "PATCH", { data: json });
+  },
 });

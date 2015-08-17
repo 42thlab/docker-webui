@@ -10,5 +10,6 @@
   <div>containers_count: {{model.containers_count}}</div>
   <div>last_ping: {{model.last_ping}}</div>
   <div>state: {{model.state}}</div>
+  {{#link-to 'dashboard.cluster/edit' model}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
   <button {{action 'delete' model}} class='btn btn-danger'>Delete</button>
 </div>
