@@ -7,7 +7,7 @@ RUN useradd dev && mkdir /home/dev && chown -R dev:dev /home/dev
 
 # Install ember and bower.
 RUN npm install -g \
-    ember-cli \
+    ember-cli@1.13.8 \
     bower
 
 # Copy package.json  and bower.json into the image.

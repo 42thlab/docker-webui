@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 import EmberValidations from 'ember-validations';
 
 export default Ember.Route.extend(EmberValidations.Mixin,AuthenticatedRouteMixin, {
-  model: function(params) {
-    return this.store.find('cluster', params.cluster_id);
+  renderTemplate: function() {
+    this.render('cluster/edit', { into: 'dashboard' });
   }
 });

@@ -1,0 +1,29 @@
+{
+  "name": "ember-data.model-fragments",
+  "version": "0.4.1",
+  "license": "MIT",
+  "main": "dist/ember-data.model-fragments.js",
+  "ignore": [
+    "bower_components",
+    "node_modules",
+    "tmp",
+    "ember-addon",
+    "packages",
+    "config",
+    "tests",
+    ".gitignore",
+    ".travis.yml",
+    "Brocfile.js",
+    "package.json",
+    "testem.json"
+  ],
+  "dependencies": {
+    "ember-data": "^1.13.5"
+  },
+  "devDependencies": {
+    "jquery": "^2.0.0",
+    "ember": "^1.10.0",
+    "loader.js": "~3.2.1",
+    "ember-dev": "emberjs/ember-dev#c2c495f660a31bed291ebf8038326c80f962ac98"
+  }
+}

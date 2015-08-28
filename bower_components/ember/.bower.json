@@ -1,6 +1,6 @@
 {
   "name": "ember",
-  "version": "1.12.0",
+  "version": "1.13.8",
   "main": [
     "./ember.debug.js",
     "./ember-template-compiler.js"
@@ -9,13 +9,13 @@
     "jquery": ">= 1.7.0 < 2.2.0"
   },
   "homepage": "https://github.com/components/ember",
-  "_release": "1.12.0",
+  "_release": "1.13.8",
   "_resolution": {
     "type": "version",
-    "tag": "1.12.0",
-    "commit": "6ef84d6ab1fc57d255147aeede13637668a1f055"
+    "tag": "1.13.8",
+    "commit": "13b717bff4c3595a0a4b8b62dec6efcb2e02c37d"
   },
   "_source": "git://github.com/components/ember.git",
-  "_target": "1.12.0",
+  "_target": "1.13.8",
   "_originalSource": "ember"
 }

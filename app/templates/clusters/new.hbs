@@ -1,0 +1,6 @@
+<div class='jumbotron'>
+  {{#basic-form model=model}}
+    {{em-input property="name" label="Name" placeholder="Enter a name..."}}
+    {{em-select property="strategy" label="Strategy" prompt="-select-" contentBinding="strategyOptions" optionValuePath="content.name" optionLabelPath="content.name"}}
+  {{/basic-form}}
+</div>

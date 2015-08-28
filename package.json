@@ -21,7 +21,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "2.0.x",
     "broccoli-sass": "0.6.x",
-    "ember-cli": "0.2.5",
+    "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.3.x",
     "ember-cli-babel": "5.0.x",
     "ember-cli-content-security-policy": "0.4.x",
@@ -34,7 +34,8 @@
     "ember-cli-simple-auth-testing": "0.8.0-beta.3",
     "ember-cli-simple-auth-token": "^0.7.2",
     "ember-cli-uglify": "1.0.x",
-    "ember-data": "1.0.0-beta.17",
+    "ember-data": "1.13.11",
+    "ember-data-model-fragments": "0.4.1",
     "ember-disable-proxy-controllers": "0.7.x",
     "ember-export-application-global": "1.0.x",
     "ember-idx-button": "^0.1.3",
