@@ -25,4 +25,35 @@ export default DS.RESTAdapter.extend({
 
     return this.ajax(url, "POST", { data: json });
   },
+
+  urlForQuery: function(query, modelName) {
+    let partialUrl = "clusters/"+query['cluster_id']+"/"+modelName;
+
+    console.log(partialUrl);
+
+    return this._buildURL(partialUrl);
+  },
+
+  _buildURL: function(modelName, id) {
+    let url = this.get('host')+"/"+this.get('namespace')+"/"+modelName+"s";
+
+    return url;
+  },
+
+  sortQueryParams: function(obj) {
+    // var keys = Object.keys(obj);
+    // var len = keys.length;
+    // if (len < 2) {
+    //   return obj;
+    // }
+    // var newQueryParams = {};
+    // var sortedKeys = keys.sort();
+    //
+    // for (var i = 0; i < len; i++) {
+    //   newQueryParams[sortedKeys[i]] = obj[sortedKeys[i]];
+    // }
+    // return newQueryParams;
+
+    return '';
+  },
 });

@@ -3,7 +3,7 @@
     {{#link-to 'clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>Clusters</a>{{/link-to}}
 
     {{#each cluster in model}}
-      {{#link-to 'cluster' cluster tagName='li'}}<a {{bind-attr href='view.href'}}>{{cluster.name}}</a>{{/link-to}}
+      {{#link-to 'nodes' cluster tagName='li'}}<a {{bind-attr href='view.href'}}>{{cluster.name}}</a>{{/link-to}}
     {{/each}}
 
     <!-- {{#link-to 'dashboard.nodes' tagName='li'}}<a {{bind-attr href='view.href'}}>Nodes</a>{{/link-to}}
