@@ -23,6 +23,9 @@ Router.map(function() {
       this.resource('nodes', function() {
         this.route('new');
       });
+      this.resource('node', { path: '/node/:node_id' }, function() {
+        this.route('edit');
+      });
     });
   });
 });

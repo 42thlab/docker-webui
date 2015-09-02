@@ -1,6 +1,7 @@
 {{#each node in model}}
   <div class='jumbotron'>
     <div>name: {{node.name}}</div>
+    {{#link-to 'node.edit' node}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
     <button {{action 'delete' node}} class='btn btn-danger'>Delete</button>
   </div>
 {{/each}}

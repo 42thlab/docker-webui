@@ -38,10 +38,18 @@ export default DS.RESTAdapter.extend({
     return this.ajax(url, "DELETE");
   },
 
+  updateRecord: function(store, type, record) {
+    var json = {};
+    var serializer = store.serializerFor(type.typeKey);
+    serializer.serializeIntoHash(json, type, record);
+    var cluster = record.get('cluster');
+
+    let url = this.get('host')+"/"+this.get('namespace')+"/clusters/"+cluster.id+"/"+type.typeKey+"s/"+record.get('id');
+    return this.ajax(url, "PATCH", { data: json });
+  },
+
   urlForQuery: function(query, modelName) {
     let partialUrl = "clusters/"+query['cluster_id']+"/"+modelName;
-
-    console.log(partialUrl);
 
     return this._buildURL(partialUrl);
   },
