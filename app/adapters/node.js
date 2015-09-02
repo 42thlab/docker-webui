@@ -54,6 +54,12 @@ export default DS.RESTAdapter.extend({
     return this._buildURL(partialUrl);
   },
 
+  urlForQueryRecord: function(query, modelName) {
+    let partialUrl = "clusters/"+query['cluster_id']+"/"+modelName;
+
+    return this._buildURL(partialUrl);
+  },
+
   _buildURL: function(modelName, id) {
     let url = this.get('host')+"/"+this.get('namespace')+"/"+modelName+"s";
 
