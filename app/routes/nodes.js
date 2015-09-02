@@ -11,4 +11,18 @@ export default Ember.Route.extend(EmberValidations.Mixin,AuthenticatedRouteMixin
 
     return this.store.query('node', {cluster_id: id});
   },
+
+  actions: {
+    delete: function(node) {
+      let cluster = this.modelFor('cluster');
+
+      let id = cluster.get('id');
+
+      node.set('cluster_id', id);
+      node.destroyRecord();
+      // this.store.find('node').then(function (record) {
+      //   record.destroyRecord();
+      // });
+    }
+  }
 });

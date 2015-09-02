@@ -20,10 +20,22 @@ export default DS.RESTAdapter.extend({
     var serializer = store.serializerFor(type.typeKey);
     serializer.serializeIntoHash(json, type, record);
 
-    var cluster_id = record.get('cluster_id');
-    let url = this.get('host')+"/"+this.get('namespace')+"/clusters/"+cluster_id+"/"+type.typeKey+"s";
+    // var cluster_id = record.get('cluster_id');
+    var cluster = record.get('cluster');
+
+    let url = this.get('host')+"/"+this.get('namespace')+"/clusters/"+cluster.id+"/"+type.typeKey+"s";
 
     return this.ajax(url, "POST", { data: json });
+  },
+
+  deleteRecord: function(store, type, snapshot) {
+    var id = snapshot.id;
+
+    var cluster_id = snapshot.get('cluster_id');
+
+    let url = this.get('host')+"/"+this.get('namespace')+"/clusters/"+cluster_id+"/"+type.typeKey+"s/"+id;
+
+    return this.ajax(url, "DELETE");
   },
 
   urlForQuery: function(query, modelName) {

@@ -7,7 +7,7 @@ export default Ember.Route.extend(EmberValidations.Mixin,AuthenticatedRouteMixin
     let node = this.store.createRecord('node');
 
     let cluster = this.modelFor('cluster');
-    node.set('cluster_id', cluster.get('id'));
+    node.set('cluster', cluster);
     node.set('region', 'region1');
     node.set('node_size', 'size455');
 
@@ -23,7 +23,9 @@ export default Ember.Route.extend(EmberValidations.Mixin,AuthenticatedRouteMixin
       let self = this;
 
       this.currentModel.save()
-      .then(() => {
+      .then(node => {
+        // let cluster = this.modelFor('cluster');
+        // cluster.nodes.pushObject(node);
         defer.resolve();
       })
       .catch(error => {
