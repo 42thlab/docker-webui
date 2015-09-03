@@ -12,9 +12,8 @@ export default Ember.Controller.extend({
         .then(() => {
           invalidateSession(self);
         })
-        .catch(error => {
+        .catch(() => {
           errorHandler(self);
-          return rej();
         })
       );
     }

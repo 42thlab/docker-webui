@@ -16,7 +16,7 @@ export default FormGroupComponent.extend({
 
     if (e) {
       e.preventDefault();
-    };
+    }
 
     var defer = Ember.RSVP.defer();
 
@@ -44,8 +44,8 @@ export default FormGroupComponent.extend({
 
   showErrors: function (view) {
     var self = this;
-    jQuery.each(view._childViews, function (key, validation) {
-      if (jQuery.inArray("form-group", validation.classNames) > 0) {
+    jQuery.each(view.childViews, function (key, validation) {
+      if(validation.errors.length > 0){
         validation.set('canShowErrors', true);
       }
       if (validation._childViews) {

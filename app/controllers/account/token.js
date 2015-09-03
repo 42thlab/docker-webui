@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
         self.set('model', data.get('token'));
         defer.resolve();
       })
-      .catch(error => {
+      .catch(() => {
         errorHandler(self);
         defer.reject();
       });

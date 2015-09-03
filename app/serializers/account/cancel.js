@@ -1,12 +1,8 @@
 import Ember from 'ember';
-import DS from 'ember-data';
+import ApplicationSerializer from '../application';
 
-export default DS.RESTSerializer.extend({
+export default ApplicationSerializer.extend({
   keyForAttribute: function(attr, method) {
     return Ember.String.underscore(attr);
-  },
-
-  serializeIntoHash: function(hash, type, record, options) {
-    Ember.merge(hash, this.serialize(record, options));
   }
 });

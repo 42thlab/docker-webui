@@ -1,6 +1,5 @@
 import DS from "ember-data";
 import EmberValidations from 'ember-validations';
-import Ember from "ember";
 
 let Node = DS.Model.extend(EmberValidations.Mixin,
 {

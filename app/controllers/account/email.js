@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
         defer.resolve();
         //TODO: refresh the user email in the navbar template
       })
-      .catch(error => {
+      .catch(() => {
         errorHandler(self);
         defer.reject();
       });

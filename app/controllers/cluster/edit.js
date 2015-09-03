@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
       .then(() => {
         defer.resolve();
       })
-      .catch(error => {
+      .catch(() => {
         errorHandler(self);
         defer.reject();
       });

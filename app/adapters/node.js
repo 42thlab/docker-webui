@@ -1,20 +1,6 @@
-import DS from 'ember-data';
-import Ember from 'ember';
-import ENV from '../config/environment';
+import ApplicationAdapter from './application';
 
-export default DS.RESTAdapter.extend({
-  host: ENV.apiURL,
-  namespace: ENV.apiNamespace,
-
-  headers: function() {
-    let session = localStorage.getItem('ember_simple_auth:session');
-    let json = JSON.parse(session);
-
-    return {
-      'Authorization': `JWT ${json.secure.token}`
-    };
-  }.property().volatile(),
-
+export default ApplicationAdapter.extend({
   createRecord: function(store, type, record) {
     var json = {};
     var serializer = store.serializerFor(type.typeKey);
@@ -22,7 +8,6 @@ export default DS.RESTAdapter.extend({
 
     // var cluster_id = record.get('cluster_id');
     var cluster = record.get('cluster');
-
     let url = this.get('host')+"/"+this.get('namespace')+"/clusters/"+cluster.id+"/"+type.typeKey+"s";
 
     return this.ajax(url, "POST", { data: json });
