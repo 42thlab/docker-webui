@@ -10,14 +10,25 @@
   <div>containers_count: {{model.containers_count}}</div>
   <div>last_ping: {{model.last_ping}}</div>
   <div>state: {{model.state}}</div>
-
+<!--
   {{#each node in model.nodes}}
   <div>node: {{node.name}}</div>
-  {{/each}}
+  {{/each}} -->
 
   {{#link-to 'nodes.new'}}<button class='btn btn-success'>Add node</button>{{/link-to}}
   {{#link-to 'cluster.edit'}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
   <button {{action 'delete'}} class='btn btn-danger'>Delete</button>
 </div>
+
+{{#each node in model.nodes}}
+  <div class='jumbotron'>
+    {{#link-to 'node' node}}
+    <div>id: {{node.id}}</div>
+    <div>name: {{node.name}}</div>
+    {{#link-to 'node.edit' node}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
+    <button {{action 'deleteNode' node}} class='btn btn-danger'>Delete</button>
+    {{/link-to}}
+  </div>
+{{/each}}
 
 {{outlet}}

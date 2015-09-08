@@ -13,7 +13,7 @@ let Cluster = DS.Model.extend(EmberValidations.Mixin,
   containers_count: DS.attr(),
   last_ping: DS.attr(),
   state: DS.attr(),
-  nodes: DS.hasMany('node'),
+  nodes: DS.hasMany('node', { async: true }),
 });
 
 Cluster.reopen({

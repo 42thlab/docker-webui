@@ -9,12 +9,7 @@ export default Ember.Route.extend(EmberValidations.Mixin,AuthenticatedRouteMixin
 
   actions: {
     submit: function(defer) {
-      let model = this.currentModel;
-
-      let cluster = this.modelFor('cluster');
-      model.set('cluster', cluster);
-
-      model.save()
+      this.currentModel.save()
       .then(() => {
         defer.resolve();
       })
