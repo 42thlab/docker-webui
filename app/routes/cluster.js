@@ -3,12 +3,13 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function(params) {
-    return this.store.find('cluster', params.cluster_id).then(cluster => cluster.get('nodes'));
-  },
+    let cluster;
 
-  actions: {
-    deleteNode: function(node) {
-      node.destroyRecord();
-    }
+    return this.store.find('cluster', params.cluster_id).then(record => {
+      cluster = record;
+      return cluster.get('nodes');
+    }).then(() => {
+      return cluster;
+    });
   }
 });

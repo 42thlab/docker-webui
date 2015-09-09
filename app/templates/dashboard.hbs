@@ -1,15 +1,39 @@
-<div class='jumbotron col-md-3'>
+<div class='well col-md-3'>
   <ul class="nav nav-pills nav-stacked">
-    {{#link-to 'clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>Clusters</a>{{/link-to}}
+    {{#link-to 'clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>All clusters</a>{{/link-to}}
 
     {{#each cluster in model}}
       {{#link-to 'cluster' cluster tagName='li'}}<a {{bind-attr href='view.href'}}>{{cluster.name}}</a>{{/link-to}}
     {{/each}}
-
-    <!-- {{#link-to 'dashboard.nodes' tagName='li'}}<a {{bind-attr href='view.href'}}>Nodes</a>{{/link-to}}
-    {{#link-to 'dashboard.containers' tagName='li'}}<a {{bind-attr href='view.href'}}>Containers</a>{{/link-to}} -->
   </ul>
 </div>
+
+
+
+<!-- <div class='col-md-3'>
+  <div class="well">
+    <ul class="nav nav-pills nav-stacked">
+    {{#link-to 'clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>Clusters</a>{{/link-to}}
+    </ul>
+  </div>
+
+  {{#each cluster in model}}
+  <div class="well">
+    <ul class="nav nav-pills nav-stacked">
+    {{#link-to 'cluster' cluster tagName='li'}}<a {{bind-attr href='view.href'}}>{{cluster.name}}</a>{{/link-to}}
+
+    {{#if cluster.nodes.length}}
+      <div class='separator'></div>
+    {{/if}}
+
+    {{#each node in cluster.nodes}}
+      {{#link-to 'node' node tagName='li'}}<a {{bind-attr href='view.href'}}>{{node.name}}</a>{{/link-to}}
+    {{/each}}
+    </ul>
+  </div>
+  {{/each}}
+</div> -->
+
 
 <div class='col-md-9'>
   {{outlet}}

@@ -10,10 +10,6 @@
   <div>containers_count: {{model.containers_count}}</div>
   <div>last_ping: {{model.last_ping}}</div>
   <div>state: {{model.state}}</div>
-<!--
-  {{#each node in model.nodes}}
-  <div>node: {{node.name}}</div>
-  {{/each}} -->
 
   {{#link-to 'nodes.new'}}<button class='btn btn-success'>Add node</button>{{/link-to}}
   {{#link-to 'cluster.edit'}}<button class='btn btn-warning'>Edit</button>{{/link-to}}

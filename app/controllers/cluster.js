@@ -6,6 +6,10 @@ export default Ember.Controller.extend({
       let self = this;
 
       this.get('model').destroyRecord().then(() => self.transitionTo('clusters'));
-    }
+    },
+
+    deleteNode: function(node) {
+      node.destroyRecord();
+    },
   }
 });
