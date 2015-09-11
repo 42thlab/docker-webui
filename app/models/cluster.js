@@ -14,6 +14,7 @@ let Cluster = DS.Model.extend(EmberValidations.Mixin,
   last_ping: DS.attr(),
   state: DS.attr(),
   nodes: DS.hasMany('node', { async: true }),
+  isExpanded: DS.attr('boolean', {defaultValue: false}),
 });
 
 Cluster.reopen({

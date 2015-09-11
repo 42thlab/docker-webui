@@ -1,4 +1,4 @@
-<div class='well col-md-3'>
+<!-- <div class='well col-md-3'>
   <ul class="nav nav-pills nav-stacked">
     {{#link-to 'clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>All clusters</a>{{/link-to}}
 
@@ -6,29 +6,65 @@
       {{#link-to 'cluster' cluster tagName='li'}}<a {{bind-attr href='view.href'}}>{{cluster.name}}</a>{{/link-to}}
     {{/each}}
   </ul>
+</div> -->
+
+
+
+<div class='col-md-3'>
+  <div class='well'>
+    <div id='allClusters' class='menuItem' {{action 'transitionToClusters'}}>
+      All clusters
+    </div>
+  </div>
+
+  {{#each cluster in model}}
+    <div id='{{cluster.id}}' class='well'>
+      <div class='menuItem clusterItem' {{action 'transitionToCluster' cluster}}>
+        {{cluster.name}}
+      </div>
+
+      <div class='nodeMenu' hidden>
+        {{#each node in cluster.nodes}}
+        <div id='{{node.id}}' class='menuItem nodeItem' {{action 'transitionToNode' node}}>
+          {{node.name}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  {{/each}}
 </div>
+
+
+
 
 
 
 <!-- <div class='col-md-3'>
   <div class="well">
     <ul class="nav nav-pills nav-stacked">
-    {{#link-to 'clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>Clusters</a>{{/link-to}}
+    {{#link-to 'clusters' tagName='li'}}<a {{bind-attr href='view.href'}}>All clusters</a>{{/link-to}}
     </ul>
   </div>
 
   {{#each cluster in model}}
   <div class="well">
     <ul class="nav nav-pills nav-stacked">
-    {{#link-to 'cluster' cluster tagName='li'}}<a {{bind-attr href='view.href'}}>{{cluster.name}}</a>{{/link-to}}
+    {{#link-to 'cluster' cluster}}<li {{action 'transition' cluster}}><a {{bind-attr href='view.href'}}>{{cluster.name}}</a></li>{{/link-to}} -->
+    <!-- {{#link-to 'cluster' cluster tagName='li'}}<a {{bind-attr href='view.href'}}>{{cluster.name}}</a>{{/link-to}} -->
 
-    {{#if cluster.nodes.length}}
-      <div class='separator'></div>
-    {{/if}}
+    <!-- {{#if cluster.isExpanded}} -->
+      <!-- {{#if cluster.nodes.length}}
+        <div class='separator'></div>
+      {{/if}} -->
 
-    {{#each node in cluster.nodes}}
-      {{#link-to 'node' node tagName='li'}}<a {{bind-attr href='view.href'}}>{{node.name}}</a>{{/link-to}}
-    {{/each}}
+    <!-- <div id='nodeMenu'>
+      {{node-menu nodes=cluster.nodes}}
+    </div> -->
+
+      <!-- {{#each node in cluster.nodes}}
+        {{#link-to 'node' node tagName='li'}}<a {{bind-attr href='view.href'}}>{{node.name}}</a>{{/link-to}}
+      {{/each}} -->
+    <!-- {{/if}}
     </ul>
   </div>
   {{/each}}

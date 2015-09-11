@@ -1,0 +1,7 @@
+{{#if nodes.length}}
+  <div class='separator'></div>
+{{/if}}
+
+{{#each node in nodes}}
+  {{#link-to 'node' node tagName='li'}}<a {{bind-attr href='view.href'}}>{{node.name}}</a>{{/link-to}}
+{{/each}}

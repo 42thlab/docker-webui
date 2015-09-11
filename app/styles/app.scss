@@ -2,3 +2,24 @@
 // @import '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css';
 // @import 'bower_components/fontawesome/scss/font-awesome';
 //TODO: correct the fontawesome import to work with local ressources
+
+
+.separator {
+  height:1px;
+  background:#337ab7;
+  border-bottom:1px solid #337ab7;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.menuItem {
+  border-radius: 4px;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.menuItem.selected {
+  background: #337ab7;
+  color: white;
+}
