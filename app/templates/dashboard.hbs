@@ -20,7 +20,7 @@
   {{#each cluster in model}}
     <div id='{{cluster.id}}' class='well'>
       <div class='menuItem clusterItem' {{action 'transitionToCluster' cluster}}>
-        {{cluster.name}}
+        {{cluster.name}} - {{cluster.state}}
       </div>
 
       <div class='nodeMenu' hidden>

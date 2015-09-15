@@ -23,3 +23,67 @@
   background: #337ab7;
   color: white;
 }
+
+.headers {
+  margin-bottom: 20px;
+}
+
+.infos {
+  border: 2px solid;
+  overflow: hidden;
+}
+
+.infos.running {
+  border-color: #5cb85c;
+}
+
+.infos.unreachable {
+  border-color:  #c9302c;
+}
+
+.infos.empty,
+.infos.deploying,
+.infos.upgrading {
+  border-color: #f0ad4e;
+}
+
+.head {
+  float:left;
+}
+
+.name {
+  font-size: 24px;
+}
+
+.id {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.state {
+  font-weight: bold;
+  float: right;
+}
+
+.state.running {
+  color: #5cb85c;
+}
+
+.state.unreachable {
+  color:  #c9302c;
+}
+
+.state.empty,
+.state.deploying,
+.state.upgrading {
+  color: #f0ad4e;
+}
+
+.content {
+  clear: left;
+  padding: 20px 0 20px 0;
+}
+
+.actions {
+  float: right;
+}
