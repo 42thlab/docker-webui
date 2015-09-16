@@ -1,7 +1,4 @@
-<div class='headers'>
-  {{#link-to 'clusters.new'}}<button class='btn btn-success'>Create new cluster</button>{{/link-to}}
-</div>
-
+<div class='col-md-9'>
 {{#each cluster in model}}
   <div class='well infos {{cluster.state}}'>
     {{#link-to 'cluster' cluster}}
@@ -34,3 +31,10 @@
     </div>
   </div>
 {{/each}}
+</div>
+
+<div class='col-md-3'>
+  <div class='well'>
+    {{#link-to 'clusters.new'}}<button class='btn btn-block btn-success'>Create new cluster</button>{{/link-to}}
+  </div>
+</div>

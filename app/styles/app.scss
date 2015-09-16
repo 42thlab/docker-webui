@@ -4,6 +4,10 @@
 //TODO: correct the fontawesome import to work with local ressources
 
 
+button {
+  margin: 5px;
+}
+
 .separator {
   height:1px;
   background:#337ab7;
@@ -13,6 +17,7 @@
 }
 
 .menuItem {
+  cursor: pointer;
   border-radius: 4px;
   position: relative;
   display: block;
@@ -25,6 +30,11 @@
 }
 
 .headers {
+  margin-bottom: 20px;
+}
+
+.toto {
+  overflow: hidden;
   margin-bottom: 20px;
 }
 

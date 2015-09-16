@@ -10,7 +10,7 @@
 
 
 
-<div class='col-md-3'>
+<div class='col-md-2'>
   <div class='well'>
     <div id='allClusters' class='menuItem' {{action 'transitionToClusters'}}>
       All clusters
@@ -20,7 +20,7 @@
   {{#each cluster in model}}
     <div id='{{cluster.id}}' class='well'>
       <div class='menuItem clusterItem' {{action 'transitionToCluster' cluster}}>
-        {{cluster.name}} - {{cluster.state}}
+        {{cluster.name}} - {{cluster.state}}<b class="caret"></b>
       </div>
 
       <div class='nodeMenu' hidden>
@@ -71,6 +71,6 @@
 </div> -->
 
 
-<div class='col-md-9'>
+<div class='col-md-10'>
   {{outlet}}
 </div>

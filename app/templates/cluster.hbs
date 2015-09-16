@@ -1,67 +1,86 @@
-<div class='well infos {{model.state}}'>
-  <div>
-    <div>
-      <div class='head'>
-        <div class='name'>{{model.name}}</div>
-        <div class='id'>{{model.id}}</div>
-      </div>
-      <div class='state {{model.state}}'>{{model.state}}</div>
+<div class='col-md-9'>
+  <div class='toto'>
+    <div class='head'>
+      <div class='name'>{{model.name}}</div>
+      <div class='id'>{{model.id}}</div>
     </div>
-
-    <div class='content'>
-      <div>name: {{model.name}}</div>
-      <div>strategy: {{model.strategy}}</div>
-      <div>state_message: {{model.state_message}}</div>
-      <div>token: {{model.token}}</div>
-      <div>created_at: {{model.created_at}}</div>
-      <div>updated_at: {{model.updated_at}}</div>
-      <div>nodes_count: {{model.nodes_count}}</div>
-      <div>containers_count: {{model.containers_count}}</div>
-      <div>last_ping: {{model.last_ping}}</div>
-      <div>state: {{model.state}}</div>
-    </div>
+    <div class='state {{model.state}}'>{{model.state}}</div>
   </div>
 
-  <div class='actions'>
-    {{#link-to 'nodes.new'}}<button class='btn btn-success'>Add node</button>{{/link-to}}
-    {{#link-to 'cluster.edit'}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
-    <button {{action 'delete'}} class='btn btn-danger'>Delete</button>
-  </div>
-</div>
-
-
-
-{{#each node in model.nodes}}
-  <!-- <div class='jumbotron'>
-    {{#link-to 'node' node}}
-    <div>id: {{node.id}}</div>
-    <div>name: {{node.name}}</div>
-    {{#link-to 'node.edit' node}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
-    <button {{action 'deleteNode' node}} class='btn btn-danger'>Delete</button>
-    {{/link-to}}
-  </div> -->
-
-
-  <div class='well infos {{model.state}}'>
+  <!-- <div class='well infos {{model.state}}'>
     <div>
-      {{#link-to 'node' node}}
       <div>
         <div class='head'>
-          <div class='name'>{{node.name}}</div>
-          <div class='id'>{{node.id}}</div>
+          <div class='name'>{{model.name}}</div>
+          <div class='id'>{{model.id}}</div>
         </div>
-        <div class='state {{model.state}}'>{{node.state}}</div>
+        <div class='state {{model.state}}'>{{model.state}}</div>
       </div>
-      {{/link-to}}
-    </div>
 
-    <div class='content'></div>
+      <div class='content'>
+        <div>name: {{model.name}}</div>
+        <div>strategy: {{model.strategy}}</div>
+        <div>state_message: {{model.state_message}}</div>
+        <div>token: {{model.token}}</div>
+        <div>created_at: {{model.created_at}}</div>
+        <div>updated_at: {{model.updated_at}}</div>
+        <div>nodes_count: {{model.nodes_count}}</div>
+        <div>containers_count: {{model.containers_count}}</div>
+        <div>last_ping: {{model.last_ping}}</div>
+        <div>state: {{model.state}}</div>
+      </div>
+    </div>
 
     <div class='actions'>
-      {{#link-to 'node.edit' node}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
-      <button {{action 'deleteNode' node}} class='btn btn-danger'>Delete</button>
+      {{#link-to 'nodes.new'}}<button class='btn btn-success'>Add node</button>{{/link-to}}
+      {{#link-to 'cluster.edit'}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
+      <button {{action 'delete'}} class='btn btn-danger'>Delete</button>
     </div>
+  </div> -->
+
+  {{#each node in model.nodes}}
+    <div class='well infos {{model.state}}'>
+      <div>
+        {{#link-to 'node' node}}
+        <div>
+          <div class='head'>
+            <div class='name'>{{node.name}}</div>
+            <div class='id'>{{node.id}}</div>
+          </div>
+          <div class='state {{model.state}}'>{{node.state}}</div>
+        </div>
+        {{/link-to}}
+      </div>
+
+      <div class='content'></div>
+
+      <div class='actions'>
+        {{#link-to 'node.edit' node}}<button class='btn btn-warning'>Edit</button>{{/link-to}}
+        <button {{action 'deleteNode' node}} class='btn btn-danger'>Delete</button>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+<div class='col-md-3'>
+  <div class='well'>
+    {{#link-to 'nodes.new'}}<button class='btn btn-block btn-success'>Add node</button>{{/link-to}}
+    {{#link-to 'cluster.edit'}}<button class='btn btn-block btn-warning'>Edit cluster</button>{{/link-to}}
+    <button {{action 'delete'}} class='btn btn-block btn-danger'>Delete cluster</button>
   </div>
-{{/each}}
+
+  <div class='well'>
+    <div>name: {{model.name}}</div>
+    <div>strategy: {{model.strategy}}</div>
+    <div>state_message: {{model.state_message}}</div>
+    <div>token: {{model.token}}</div>
+    <div>created_at: {{model.created_at}}</div>
+    <div>updated_at: {{model.updated_at}}</div>
+    <div>nodes_count: {{model.nodes_count}}</div>
+    <div>containers_count: {{model.containers_count}}</div>
+    <div>last_ping: {{model.last_ping}}</div>
+    <div>state: {{model.state}}</div>
+  </div>
+</div>
 
 {{outlet}}
