@@ -9,10 +9,13 @@ export default FormGroupComponent.extend({
   isSaving: false,
   isSaved: false,
 
+  errorMessage: '',
+
   validationNeeded: true,
 
   submit: function(e) {
     var self = this;
+    self.set('errorMessage', '');
 
     if (e) {
       e.preventDefault();
@@ -23,7 +26,11 @@ export default FormGroupComponent.extend({
     defer.promise.then(function(){
       self.set('isSaving', false);
       self.set('isSaved', true);
-    }).catch(function(){
+    }).catch(function(error){
+      if(error.status==403){
+        self.set('errorMessage', 'Your current password is invalid');
+      }
+
       self.set('isSaving', false);
     });
 

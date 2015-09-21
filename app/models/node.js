@@ -15,14 +15,15 @@ let Node = DS.Model.extend(EmberValidations.Mixin,
   fqdn: DS.attr(),
   public_ip: DS.attr(),
   region: DS.attr(),
-  node_size: DS.attr(),
+  size: DS.attr(),
   cpu: DS.attr(),
   disk: DS.attr(),
   memory: DS.attr(),
   docker_version: DS.attr(),
   swarm_version: DS.attr(),
-  created_at: DS.attr(),
-  updated_at: DS.attr()
+  created_at: DS.attr('date'),
+  updated_at: DS.attr('date'),
+  actions: DS.hasMany('action', { async: true }),
 });
 
 Node.reopen({

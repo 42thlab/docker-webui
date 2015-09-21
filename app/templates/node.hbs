@@ -58,4 +58,11 @@
     <div>last_ping: {{model.last_ping}}</div>
     <div>state: {{model.state}}</div>
   </div>
+
+  <div class='well'>
+    {{#each action in model.actions}}
+    <span>{{action.started_at}}: </span>
+    <span>{{action.type}}</span>
+    {{/each}}
+  </div>
 </div>

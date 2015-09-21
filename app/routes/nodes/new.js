@@ -9,7 +9,7 @@ export default Ember.Route.extend(EmberValidations.Mixin,AuthenticatedRouteMixin
     let cluster = this.modelFor('cluster');
     node.set('cluster', cluster);
     node.set('region', 'region1');
-    node.set('node_size', 'size455');
+    node.set('size', 'size455');
 
     return node;
   },

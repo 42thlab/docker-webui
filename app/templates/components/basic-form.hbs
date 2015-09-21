@@ -1,4 +1,5 @@
 {{yield}}
+<div>
 <button {{bind-attr class="isSaving:disabled :btn :btn-success"}}>
   {{#if isSaving}}
     {{labelSaving}}
@@ -10,3 +11,5 @@
     {{labelSave}}
   {{/if}}
 </button>
+<span class='error'>{{errorMessage}}</span>
+</div>
