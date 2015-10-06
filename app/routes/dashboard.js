@@ -41,7 +41,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       Ember.$('.nodeItem').not('#'+node.id+'.nodeItem').removeClass('selected');
       Ember.$('#'+node.id+'.nodeItem').addClass('selected');
 
-      this.transitionTo('node', node);
+      this.transitionTo('containers', node);
     }
   }
 });

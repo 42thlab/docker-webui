@@ -1,0 +1,16 @@
+{{#each container in model}}
+  <div class='well infos'>
+    {{#link-to 'container' container.Id}}
+      <div>{{container.Id}}</div>
+      <div>{{container.Image}}</div>
+      <div>{{container.Command}}</div>
+      <div>{{container.Status}}</div>
+
+      <div>
+        {{#each name in container.Names}}
+          {{name}}
+        {{/each}}
+      </div>
+    {{/link-to}}
+  </div>
+{{/each}}

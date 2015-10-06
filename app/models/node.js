@@ -24,6 +24,7 @@ let Node = DS.Model.extend(EmberValidations.Mixin,
   created_at: DS.attr('date'),
   updated_at: DS.attr('date'),
   actions: DS.hasMany('action', { async: true }),
+  // containers: DS.hasMany('container', { async: true }),
 });
 
 Node.reopen({

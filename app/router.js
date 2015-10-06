@@ -25,6 +25,12 @@ Router.map(function() {
       });
       this.resource('node', { path: '/node/:node_id' }, function() {
         this.route('edit');
+        this.resource('containers', function() {
+          this.route('new');
+        });
+        this.resource('container', { path: '/container/:container_id' }, function() {
+          this.route('edit');
+        });
       });
     });
   });
